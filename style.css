@@ -87,7 +87,7 @@ main{
 
 #tasks .task .content .text{
     font-size: 1.125rem;
-    width: 100%;
+    width: 250%;
     display: block;
     transition: 0.4s;
 }
@@ -103,4 +103,19 @@ main{
 
 .task .actions button{
     cursor: pointer;
+    margin: 0 0.5rem;
+    background-color: #5A00CC;
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding-left: 9px;
+    padding-right: 9px;
+    font-weight: 500;
+    border-radius: 0.8rem;
+    transition: 0.4s;
+}
+
+.task .actions button:hover{
+    scale: 1.1;
+    background-color: #FFFFFF;
+    color: #5A00CC;
 }

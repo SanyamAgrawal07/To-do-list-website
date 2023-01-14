@@ -11,8 +11,8 @@
     <header>
         <h1>To-do Tasks</h1>
         <form id="newTaskForm">
-            <input type="text" placeholder="Your new task" id="newTaskInput">
-            <input type="submit" value="Add task" id="newTaskSubmit">
+            <input type="text" placeholder="Your new task" id="newTaskInput" required />
+            <input type="submit" value="Add task" id="newTaskSubmit"/>
         </form>
     </header>
 
@@ -20,18 +20,23 @@
         <section class="tasksList">
             <h2>Tasks</h2>
             <div id="tasks">
-                <div class="task">
-                    <div class="content">
-                        <input type="text" class="text" value="This is my task" readonly/>
-                    </div>
-                    <div class="actions">
-                        <button class="edit">Edit</button>
-                        <button class="delete">Delete</button>
-                    </div>
-                </div>
+                
             </div>
         </section>
     </main>
+
+    <script id="task-template" type="text/html">
+        <div class="task" id={{taskId}}>
+            <div class="content">
+                <input type="text" class="text" value={{task}} readonly/>
+            </div>
+            <div class="actions">
+                <button class="delete" id={{remId}}>Delete</button>
+            </div>
+        </div>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>
