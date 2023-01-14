@@ -7,6 +7,10 @@ window.addEventListener('load',()=>{
     $newTaskForm.addEventListener('submit',(e)=>{
         e.preventDefault()
         const task = $newTaskInput.value
+        if(document.querySelector(`#${task}script`)){
+            alert('Cannot make duplicate tasks')
+            return
+        }
         const html = Mustache.render($taskTemplate,{
             task,
             taskId: `${task}task`,
