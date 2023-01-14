@@ -7,24 +7,21 @@ window.addEventListener('load',()=>{
     $newTaskForm.addEventListener('submit',(e)=>{
         e.preventDefault()
         const task = $newTaskInput.value
-        if(document.querySelector(`#${task}script`)){
-            alert('Cannot make duplicate tasks')
-            return
-        }
+        const num = Math.floor(Math.random()*10000) + 1
         const html = Mustache.render($taskTemplate,{
             task,
-            taskId: `${task}task`,
-            remId: `${task}rem`
+            taskId: `task${num}`,
+            remId: `del${num}`
         })
         $tasks.insertAdjacentHTML('beforeend', html)
         var scriptElm = document.createElement('script');
-        scriptElm.setAttribute('id',`${task}script`)
+        scriptElm.setAttribute('id',`script${num}`)
         var inlineCode = document.createTextNode(`
-            document.querySelector('#${task}rem').addEventListener('click',(e)=>{
+            document.querySelector('#del${num}').addEventListener('click',(e)=>{
                 e.preventDefault()
-                const html = document.querySelector('#${task}task')
+                const html = document.querySelector('#task${num}')
                 html.remove()
-                const script = document.querySelector('#${task}script')
+                const script = document.querySelector('#script${num}')
                 script.remove()
             })
         `);
